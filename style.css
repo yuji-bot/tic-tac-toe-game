@@ -34,10 +34,37 @@ header{
     border: none;
     box-shadow: 0 0 1rem #454955;
     font-size: 10vmin;
+    transition: 1s;
+}
+.box:hover{
+    
+    background: green;
 }
 #reset{
     width: 60vmin;
     height: 5vmin;
     border-radius: 1rem;
     border: none;
+    transition: 1s;
+}
+#reset:hover{
+    background: red;
+}
+.winmsg{
+    height: 10vmin;
+    text-align: center;
+    align-items: center;
+}
+.winmsg p{
+    font-size: 5vmin;
+}
+.newgame{
+    width: 15vmin;
+    height: 5vmin;
+    border-radius: 1rem;
+    border: none;
+    transition: 1s;
+}
+.hide{
+    display: none;
 }

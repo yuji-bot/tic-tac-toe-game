@@ -1,6 +1,9 @@
 let boxes=document.querySelectorAll(".box");
 let reset=document.querySelector("#reset");
 let turn="f";
+let newgame=document.querySelector(".newgame");
+let winsmg=document.querySelector(".winmsg");
+let msg=document.querySelector("#msg");
 const pattern=[
     [0,1,2],
     [0,3,6],
@@ -25,7 +28,11 @@ boxes.forEach((box) =>{
 
         checkwin();
     })
-})
+});
+const showwinner =(winner) =>{
+    msg.innerText="congratulations, winner is "+winner;
+    winsmg.classList.remove("hide")
+}
 const checkwin=() =>{
     for(let pat of pattern){
         let p1=boxes[pat[0]].innerText;
@@ -35,6 +42,7 @@ const checkwin=() =>{
         if(p1 !="" && p2 !="" && p3 !=""){
             if(p1===p2 && p2===p3){
                 console.log("wineeer",boxes[pat[0]].innerText );
+                showwinner(p1);
             }
         }
     }
