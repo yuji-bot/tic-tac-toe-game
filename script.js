@@ -14,6 +14,11 @@ const pattern=[
     [3,4,5],
     [6,7,8]
 ];
+const resetgame=()=>{
+    turn="f";
+    enablebtn();
+    winsmg.classList.add("hide");
+};
 boxes.forEach((box) =>{
     box.addEventListener("click", ()=>{
         console.log("button");
@@ -24,15 +29,28 @@ boxes.forEach((box) =>{
             box.innerText="X";
             turn="f";
         }
-        box.disabels=true;
+        box.disabled=true;
 
         checkwin();
     })
 });
+const disablebtn= ()=>{
+    for(let box of boxes){
+        box.disabled=true;
+    }
+};
+const enablebtn= ()=>{
+    for(let box of boxes){
+        box.disabled=false;
+        box.innerText="";
+    }
+};
+
 const showwinner =(winner) =>{
     msg.innerText="congratulations, winner is "+winner;
-    winsmg.classList.remove("hide")
-}
+    winsmg.classList.remove("hide");
+    disablebtn();
+};
 const checkwin=() =>{
     for(let pat of pattern){
         let p1=boxes[pat[0]].innerText;
@@ -47,3 +65,5 @@ const checkwin=() =>{
         }
     }
 };
+newgame.addEventListener("click",resetgame);
+reset.addEventListener("click",resetgame);
